@@ -1,0 +1,95 @@
+package templates
+
+css homeStyle() {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+css aboutStyle() {
+	max-width: 50rem;
+	text-align: center;
+}
+
+css warningStyle() {
+	color: #8A8A9E;
+	text-decoration: line-through;
+}
+
+css cardStyle() {
+	background-color: #16161D;
+	opacity: 0.8;
+	padding: 25px;
+	border-radius: 10px;
+	width: 60vw;
+	margin: 20px;
+}
+
+css cardWrapStyle() {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+css cardRightStyle() {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	text-align: right;
+}
+
+css cardTitle() {
+	color: #ecebf0;
+}
+
+css ImgStyle() {
+	width: 200px;
+	border-radius: 5px;
+}
+
+css scaryTitle() {
+	font-family: "Creepster", system-ui;
+}
+
+templ Home() {
+	@Base("home") {
+		<main class={ homeStyle() }>
+			<h1 class={ titleStyle() }>Camera - Every reason why Whising should give me his camera for free</h1>
+			<h2 class={ warningStyle() }>and what im gona do to him if he dosnt give me it</h2>
+			<div class={ cardWrapStyle(), cardRightStyle() }>
+				<div class={ cardStyle() }>
+					<h2 class={ cardTitle() }>Whos is <a class={ linkStyle() } href="https://whising.space">Whising</a></h2>
+					<p>
+						In his words: "I am a 14 y/0 developer from India, I develop websites and enjoy everything tech related,
+						I build servers, pc's and also like to play retro games(trimui pro on top !!!) I am also learning java and
+						I have also managed some low level events. I also love music."
+						<br/>
+						<br/>
+						But I think hes a furry  with a camera.
+					</p>
+					<img class={ ImgStyle() } src="https://files.catbox.moe/k0qrdi.png"/>
+				</div>
+			</div>
+			<div class={ cardWrapStyle() }>
+				<div class={ cardStyle() }>
+					<h2 class={ cardTitle() }>Why i should get his camera</h2>
+					<p>
+						I want it
+					</p>
+					<img class={ ImgStyle() } src="https://files.catbox.moe/o6kj0p.jpg"/>
+				</div>
+			</div>
+			<div class={ cardWrapStyle(), cardRightStyle() }>
+				<div class={ cardStyle() }>
+					<h2 class={ cardTitle() }>What im gona do if i dont get it.</h2>
+					<p class={ scaryTitle() }>
+						Im gona wait till its haloween, im gona dress him up as a hudini and inside the inescpable costume and tell that il remove it but i wont il take him to the basment and the-
+					</p>
+					<img class={ ImgStyle() } src="https://files.catbox.moe/u7g38k.png"/>
+				</div>
+			</div>
+		</main>
+	}
+}
