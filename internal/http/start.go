@@ -22,14 +22,9 @@ func Start() error {
 
 	// Serving routes
 	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-
-	addr := port
-	if !strings.HasPrefix(addr, ":") {
-		addr = ":" + addr
-	}
+		if port == "" {
+			port = "8080"
+		}
 	slog.Info("App successfully started", "port", ":8080")
 	if err := http.ListenAndServe(":8080", r); err != nil {
 		return fmt.Errorf("serving http routes: %w", err)
