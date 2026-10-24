@@ -5,7 +5,6 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
-	"strings"
 
 	"github.com/a-h/templ"
 	"github.com/gorilla/mux"
@@ -22,9 +21,9 @@ func Start() error {
 
 	// Serving routes
 	port := os.Getenv("PORT")
-		if port == "" {
-			port = "8080"
-		}
+	if port == "" {
+		port = "8080"
+	}
 	slog.Info("App successfully started", "port", ":8080")
 	if err := http.ListenAndServe(":8080", r); err != nil {
 		return fmt.Errorf("serving http routes: %w", err)
