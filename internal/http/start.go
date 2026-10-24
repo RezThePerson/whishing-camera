@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log/slog"
 	"net/http"
+	"os"
+	"strings"
 
 	"github.com/a-h/templ"
 	"github.com/gorilla/mux"
@@ -19,6 +21,15 @@ func Start() error {
 	r.Handle("/", templ.Handler(templates.Home())).Methods("GET")
 
 	// Serving routes
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	addr := port
+	if !strings.HasPrefix(addr, ":") {
+		addr = ":" + addr
+	}
 	slog.Info("App successfully started", "port", ":8080")
 	if err := http.ListenAndServe(":8080", r); err != nil {
 		return fmt.Errorf("serving http routes: %w", err)
